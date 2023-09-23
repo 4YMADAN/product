@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 
 
 class Owner(models.Model):
@@ -27,11 +29,13 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
 
-# class Lesson(models.Model):
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#     lesson_name = models.CharField(max_length=200)
-#     video = models.URLField(max_length=200)
-#     time_video = models.DurationField()
-#
-#     def __str__(self):
-#         return self.lesson_name
+
+class CustomUser(AbstractUser):
+    name_user = models.TextField()
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name_user
+
+class SampleModel(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
