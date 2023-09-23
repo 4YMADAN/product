@@ -14,10 +14,14 @@
         <nav class="d-inline-flex mt-3 mt-md-1 ms-md-auto">
             <a class="me-3 py-3 text-dark text-decoration-none" href="{% url 'index' %}"><p>Главная</p></a>
             <a class="me-3 py-3 text-dark text-decoration-none" href="{% url 'product' %}"><p>О продукте</p></a>
-            <a class="me-3 py-3 text-dark text-decoration-none" href="{% url 'registration' %}"><button class="btn btn-info">Регистрация / Вход</button></a>
+            <a class="me-3 py-3 text-dark text-decoration-none" href="{% url 'signup' %}"><button class="btn btn-info">Регистрация / Вход</button></a>
         </nav>
 </div>
 {%block body%}{%endblock%}
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
 </body>
     <footer class="container pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
